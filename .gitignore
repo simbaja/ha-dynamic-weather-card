@@ -5,7 +5,6 @@ yarn-error.log
 .pnp.*
 
 # Build artifacts
-dist/
 !dist/dynamic-weather-card.js
 *.map
 # GitHub Actions
