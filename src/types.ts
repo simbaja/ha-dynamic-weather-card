@@ -126,8 +126,9 @@ export interface WeatherCardConfig {
   clockFormat?: '12h' | '24h';
   overlayOpacity?: number;
   language?: 'auto' | 'en' | 'ru' | 'de' | 'nl' | 'fr' | 'es' | 'it' | 'sk' | 'hu';
-  height?: number | null;
+  height?: number | string | null;
   windSpeedUnit?: 'ms' | 'kmh';
+  styles?: string;
 }
 
 // Time of Day
@@ -200,7 +201,7 @@ export interface ConfigInput {
   entity: string;
   icons_path?: string;
   name?: string;
-  height?: number;
+  height?: number | string;
   show_feels_like?: boolean;
   show_wind?: boolean;
   show_wind_gust?: boolean;
@@ -225,6 +226,7 @@ export interface ConfigInput {
   tap_action?: ActionConfig;
   hold_action?: ActionConfig;
   double_tap_action?: ActionConfig;
+  styles?: string;
 }
 
 // Internal Card Configuration (normalized)

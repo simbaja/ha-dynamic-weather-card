@@ -40,6 +40,7 @@ export class DynamicWeatherCardEditor extends LitElement {
       wind_speed_unit: DEFAULT_CONFIG.windSpeedUnit,
       sunrise_entity: '',
       sunset_entity: '',
+      styles: '',
       ...config
     };
   }
@@ -59,7 +60,7 @@ export class DynamicWeatherCardEditor extends LitElement {
     return [
       { name: 'entity', required: true, selector: { entity: { domain: ['weather'] } } },
       { name: 'name', selector: { text: {} } },
-      { name: 'height', selector: { number: { min: 200, max: 800, step: 10, mode: 'box' } } },
+      { name: 'height', selector: { text: {} } },
       { name: 'show_feels_like', selector: { boolean: {} } },
       { name: 'show_wind', selector: { boolean: {} } },
       { name: 'show_wind_gust', selector: { boolean: {} } },
@@ -126,7 +127,8 @@ export class DynamicWeatherCardEditor extends LitElement {
             ]
           }
         }
-      }
+      },
+      { name: 'styles', selector: { text: { multiline: true } } }
     ];
   }
 
