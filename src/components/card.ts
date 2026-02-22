@@ -182,7 +182,8 @@ export class AnimatedWeatherCard extends LitElement {
       templowAttribute: config.templow_attribute || null,
       tapAction: config.tap_action || { action: 'more-info' },
       holdAction: config.hold_action || { action: 'none' },
-      doubleTapAction: config.double_tap_action || { action: 'none' }
+      doubleTapAction: config.double_tap_action || { action: 'none' },
+      styles: config.styles
     };
 
     if (this.config.language) {
@@ -225,7 +226,17 @@ export class AnimatedWeatherCard extends LitElement {
     const timeOfDay = this._testTimeOfDay || getTimeOfDayWithSunData(sunData);
     const cardClasses = `weather-card ${timeOfDay.type}`;
 
-    const minHeight = this.config.height ? `${this.config.height}px` : '200px';
+    let minHeightValue = '200px';
+    if (this.config.height !== undefined) {
+      if (this.config.height === 0 || this.config.height === '0') {
+        minHeightValue = 'auto';
+      } else if (typeof this.config.height === 'number') {
+        minHeightValue = `${this.config.height}px`;
+      } else if (this.config.height !== null) {
+        minHeightValue = this.config.height;
+      }
+    }
+    const heightStyle = `--card-height: ${minHeightValue};`;
 
     const bgGradient: BackgroundGradient | null = getBackgroundGradient(timeOfDay);
     const bgStyle = bgGradient
@@ -258,7 +269,7 @@ export class AnimatedWeatherCard extends LitElement {
         @pointerup=${(e: PointerEvent) => this.actionHandler.handlePointerUp(e)}
         @pointercancel=${(e: PointerEvent) => this.actionHandler.handlePointerUp(e)}
       >
-        <div class="${cardClasses}" style="min-height: ${minHeight}; ${bgStyle}; ${overlayStyle} cursor: pointer;">
+        <div class="${cardClasses}" style="${heightStyle} ${bgStyle} ${overlayStyle} cursor: pointer;">
           <div class="canvas-container"></div>
           <div class="content">
             ${this.config.name && this.config.name.trim() !== '' ? html`
@@ -304,6 +315,7 @@ export class AnimatedWeatherCard extends LitElement {
             ></daily-forecast>
           </div>
         </div>
+        ${this.config.styles ? html`<style>${this.config.styles}</style>` : ''}
       </ha-card>
     `;
   }

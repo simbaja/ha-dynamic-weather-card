@@ -13,7 +13,7 @@ export const forecastStyles = css`
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--divider-color, rgba(255, 255, 255, 0.1));
     width: 100%;
   }
 
@@ -34,7 +34,7 @@ export const forecastStyles = css`
     padding-bottom: 12px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    scrollbar-color: var(--secondary-text-color, rgba(255, 255, 255, 0.3)) transparent;
   }
 
   .forecast-scroll::-webkit-scrollbar {
@@ -42,17 +42,17 @@ export const forecastStyles = css`
   }
 
   .forecast-scroll::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--divider-color, rgba(255, 255, 255, 0.1));
     border-radius: 3px;
   }
 
   .forecast-scroll::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--secondary-text-color, rgba(255, 255, 255, 0.3));
     border-radius: 3px;
   }
 
   .forecast-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--primary-text-color, rgba(255, 255, 255, 0.5));
   }
 
   .forecast-item {

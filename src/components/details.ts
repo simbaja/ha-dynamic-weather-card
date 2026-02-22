@@ -45,7 +45,7 @@ export class WeatherDetails extends LitElement {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: var(--primary-color);
     }
 
     .info-icon svg {
