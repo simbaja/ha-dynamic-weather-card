@@ -5,7 +5,7 @@ export const cardStyles = css`
     display: block;
     --card-width: 100%;
     --card-height: 200px;
-    --primary-color: #007AFF;
+    --primary-color: var(--primary-color, #007AFF);
     --day-gradient-start: #87CEEB;
     --day-gradient-end: #E0F6FF;
     --night-gradient-start: #1a1a2e;
@@ -30,9 +30,9 @@ export const cardStyles = css`
     position: relative;
     width: var(--card-width);
     min-height: var(--card-height, 200px);
-    border-radius: 16px;
+    border-radius: var(--ha-card-border-radius, 16px);
     overflow: visible;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ha-card-box-shadow, 0 8px 32px rgba(0, 0, 0, 0.2));
     background: linear-gradient(135deg, var(--day-gradient-start), var(--day-gradient-end));
     transition: background 2s ease-in-out, min-height 0.3s ease;
   }
@@ -89,7 +89,7 @@ export const cardStyles = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: white;
+    color: var(--ha-card-header-color, white);
     text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.4),
       0 2px 6px rgba(0, 0, 0, 0.3),
@@ -210,7 +210,7 @@ export const cardStyles = css`
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--divider-color, rgba(255, 255, 255, 0.1));
     width: 100%;
   }
 
